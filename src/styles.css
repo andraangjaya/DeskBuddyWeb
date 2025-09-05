@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+.form-label {
+  @apply block text-sm/6 font-medium text-gray-900;
+}
+
+.form-control {
+  @apply block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1
+  outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600
+  sm:text-sm/6;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition
+  focus:outline-none focus:ring-2 focus:ring-indigo-600 disabled:cursor-not-allowed cursor-pointer;
+}
+
+.btn-primary {
+  @apply bg-indigo-600 text-white hover:bg-indigo-700
+  disabled:bg-gray-300 disabled:text-gray-500;
+}
+
+.btn-outline {
+  @apply border border-gray-300 bg-white text-gray-900 hover:bg-gray-50
+  disabled:text-gray-400 disabled:border-gray-200 disabled:hover:bg-white;
+}
+
