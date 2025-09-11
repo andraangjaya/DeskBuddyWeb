@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 .form-label {
   @apply block text-lg mb-2 font-medium text-gray-900;
 }

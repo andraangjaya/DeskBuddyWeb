@@ -9,6 +9,16 @@ export const routes: Routes = [
   {
     path : 'sessionhistory',
     loadComponent:() => import('app/sesison-history/session-history-update/session-history-update.component').then((m) => m.SessionHistoryUpdateComponent),
+  },
+
+  {
+    path : 'distractionhistory',
+    loadComponent:() => import('app/distraction-history/distraction-history-update/distraction-history-update.component').then((m) => m.DistractionHistoryUpdateComponent),
+  },
+
+  {
+    path : 'settings',
+    loadComponent:() => import('app/settings/settings.component').then((m) => m.SettingsComponent),
   }
 
 ];
