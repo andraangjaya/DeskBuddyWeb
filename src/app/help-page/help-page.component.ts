@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import {SidebarComponent} from '../component/sidebar/sidebar.component';
 
 @Component({
-  selector: 'app-settings',
+  selector: 'app-help-page',
   imports: [
     SidebarComponent
   ],
-  templateUrl: './settings.component.html',
-  styleUrl: './settings.component.css'
+  templateUrl: './help-page.component.html',
+  styleUrl: './help-page.component.css'
 })
-export class SettingsComponent {
+export class HelpPageComponent {
 
 }
