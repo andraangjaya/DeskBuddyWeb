@@ -1,17 +1,17 @@
 import {Component, inject, signal} from '@angular/core';
-import {RouterLink, RouterLinkActive} from '@angular/router';
 import {SidebarComponent} from '../../component/sidebar/sidebar.component';
-import {DatePipe} from '@angular/common';
-import {SessionHistory} from '../../sesison-history/session-history.model';
-import {SessionHistoryService} from '../../sesison-history/session-history.service';
+import {CommonModule, DatePipe} from '@angular/common';
 import {DistractionHistoryModel} from '../distraction-history.model';
 import {DistractionHistoryService} from '../distraction-history.service';
+import {TimeFormatPipe} from '../time-format.pipe';
 
 @Component({
   selector: 'app-distraction-history-update',
   imports: [
     SidebarComponent,
-    DatePipe
+    DatePipe,
+    CommonModule,
+    TimeFormatPipe
   ],
   templateUrl: './distraction-history-update.component.html',
   standalone: true,

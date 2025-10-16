@@ -127,10 +127,10 @@
                 {{ distractionHistory.firstName }} {{ distractionHistory.lastName }}
               </td>
               <td class="py-6 px-6">{{ distractionHistory.session }}</td>
-              <td class="py-6 px-6">{{ distractionHistory.distractions | date: 'HH:mm:ss' }}</td>
+              <td class="py-6 px-6">{{ distractionHistory.distractions }}</td>
               <td class="py-6 px-6">{{ distractionHistory.distractionStart | date: 'HH:mm:ss' }}</td>
-              <td class="py-6 px-6">{{ distractionHistory.distractionEnd }}</td>
-              <td class="py-6 px-6">{{ distractionHistory.timeElapsed }}</td>
+              <td class="py-6 px-6">{{ distractionHistory.distractionEnd | date: 'HH:mm:ss' }}</td>
+              <td class="py-6 px-6">{{ distractionHistory.timeElapsed | timeFormat }}</td>
             </tr>
           }
         </tbody>
