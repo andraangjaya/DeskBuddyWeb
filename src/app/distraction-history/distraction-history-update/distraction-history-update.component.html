@@ -19,8 +19,11 @@
                 stroke-linejoin="round"/>
         </svg>
 
-        <input type="text" placeholder="Search"
-               class="w-full h-full border-none outline-none text-sm text-gray-700 placeholder-gray-400 bg-transparent"/>
+        <input
+          type="text"
+          placeholder="Search"
+          class="w-full h-full border-none outline-none text-sm text-gray-700 placeholder-gray-400 bg-transparent"
+          (input)="searchQuery.set($any($event.target).value)"/>
       </div>
     </div>
 
@@ -104,7 +107,14 @@
           <label class="text-[#16C098]">Pomodoro Study Time</label>
         </div>
         <div class="bg-[#F9FBFF] rounded-xl p-4">
-          <label>Sort by : <strong>Newest</strong></label>
+          <label>Sort by :</label>
+          <select
+            class="font-semibold bg-transparent focus:outline-none cursor-pointer"
+            (change)="onSortChange($event)"
+          >
+            <option value="newest" selected>Newest</option>
+            <option value="oldest">Oldest</option>
+          </select>
         </div>
       </div>
 
@@ -121,7 +131,7 @@
         </thead>
 
         <tbody class="font-medium">
-          @for (distractionHistory of distractionHistories(); track distractionHistory.id; let i = $index) {
+          @for (distractionHistory of sortedHistories(); track distractionHistory.id; let i = $index) {
             <tr class="w-full border-b border-[#E5E5E5] hover:bg-gray-50">
               <td class="py-6 px-6">
                 {{ distractionHistory.firstName }} {{ distractionHistory.lastName }}

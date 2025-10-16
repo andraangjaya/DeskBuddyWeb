@@ -43,6 +43,30 @@ export class DistractionHistoryUpdateComponent {
     }).length;
   });
 
+  searchQuery = signal<string>('');
+  sortOrder = signal<'newest' | 'oldest'>('newest');
+  sortedHistories = computed(() => {
+    const query = this.searchQuery().toLowerCase();
+    const data = [...this.distractionHistories()];
+    const order = this.sortOrder();
+
+    const filtered = data.filter(item =>
+      `${item.firstName} ${item.lastName}`.toLowerCase().includes(query) ||
+      String(item.session).includes(query)
+    );
+
+    return filtered.sort((a, b) => {
+      const timeA = Date.parse(a.distractionStart || '') || 0;
+      const timeB = Date.parse(b.distractionEnd || '') || 0;
+      return order === 'newest' ? timeB - timeA : timeA - timeB;
+    });
+  });
+
+  onSortChange(event: Event): void {
+    const value = (event.target as HTMLSelectElement).value as 'newest' | 'oldest';
+    this.sortOrder.set(value);
+  }
+
 
   ngOnInit(): void {
     this.distractionHistoryService.query().subscribe(res =>{
