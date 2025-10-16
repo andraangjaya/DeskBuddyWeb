@@ -1,120 +1,140 @@
 <body class="bg-[#FAFBFF]">
-
-  <div class="flex flex-row gap-20">
-  
+<div class="flex flex-row gap-20">
   <div>
     <app-sidebar></app-sidebar>
   </div>
-  
+
   <div class="flex-1 grid grid-row-3 mr-25">
-  
-    <div class="flex flex-col bg-[#FFFFFF] shadow-[0_10px_60px_rgba(226,236,249,0.5)] rounded-[30px] w-full mt-10 mr-20 mb-10 p-8">
-  <div class="flex flex-row justify-between mt-2 mb-10">
-    <div class="text-2xl font-medium">
-      <h1>Help (FAQ)</h1>
-    </div>
-  
-    <div class="w-[216px] h-[38px] bg-[#FFFFFF] shadow-[0_10px_60px_rgba(226,236,249,0.5)] rounded-[12px] flex items-center px-3 gap-2">
-      <svg width="30" height="30" viewBox="0 0 w24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#7E7E7E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M21 21L16.65 16.65" stroke="#7E7E7E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-  
-      <input type="text" placeholder="Search" class="w-full h-full border-none outline-none text-sm text-gray-700 placeholder-gray-400 bg-transparent" />
+    <div
+      class="flex flex-col bg-[#FFFFFF] shadow-[0_10px_60px_rgba(226,236,249,0.5)] rounded-[30px] w-full mt-10 mr-20 mb-10 p-8">
+      <div class="flex flex-row justify-between mt-2 mb-10">
+        <div class="text-2xl font-medium">
+          <h1>Help (FAQ)</h1>
+        </div>
+
+        <div
+          class="w-[216px] h-[38px] bg-[#FFFFFF] shadow-[0_10px_60px_rgba(226,236,249,0.5)] rounded-[12px] flex items-center px-3 gap-2">
+          <svg width="30" height="30" viewBox="0 0 w24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+              stroke="#7E7E7E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21 21L16.65 16.65" stroke="#7E7E7E" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round"/>
+          </svg>
+
+          <input type="text" placeholder="Search"
+                 class="w-full h-full border-none outline-none text-sm text-gray-700 placeholder-gray-400 bg-transparent"/>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
+        <div
+          class="bg-white rounded-[15px] shadow-[0px_4px_4px_rgba(0,0,0,0.25),0px_4px_4px_rgba(0,0,0,0.25),0px_10px_60px_rgba(226,236,249,0.5)] p-6">
+          <h2 class="text-lg font-semibold mb-4">Pomodoro Timer</h2>
+          <div class="flex flex-col gap-5">
+            <div class="text-base">
+              <div class="flex flex-col gap-1">
+                <div class="font-medium tracking-[-0.01em]">
+                  1. What is a session?
+                </div>
+                <div class="text-[#7E7E7E] ml-4.5 leading-[21px]">A session is one focused work or study period, usually
+                  set to 25 minutes. After each session, you take a short 5 minutes rest before starting the next one.
+                </div>
+              </div>
+            </div>
+            <div class="text-base">
+              <div class="flex flex-col gap-1">
+                <div class="font-medium tracking-[-0.01em]">
+                  2. How is distraction time counted?
+                </div>
+                <div class="text-[#7E7E7E] ml-4.5 leading-[21px]">When a distraction is detected (you leave your desk,
+                  use your handphone, etc.), the session timer pauses. The time spent distracted is recorded in your
+                  Distraction History.
+                </div>
+              </div>
+            </div>
+            <div class="text-base">
+              <div class="flex flex-col gap-1">
+                <div class="font-medium tracking-[-0.01em]">
+                  3. Does distraction time reduce my 25 minutes session?
+                </div>
+                <div class="text-[#7E7E7E] ml-4.5 leading-[21px]">No. Your 25-minute session only counts active focus
+                  time. Distraction time is paused and the timer resumes after the distraction ends.
+                </div>
+              </div>
+            </div>
+            <div class="text-base">
+              <div class="flex flex-col gap-1">
+                <div class="font-medium tracking-[-0.01em]">
+                  4. What is the difference between Session History and Distraction History?
+                </div>
+                <div class="text-[#7E7E7E] ml-4.5 leading-[25px]">• Session History, Shows start and end time of every
+                  work and rest period. <br>
+                  • Distraction History, Shows each distraction's start time, end time, and duration.
+                </div>
+              </div>
+            </div>
+            <div class="text-base">
+              <div class="flex flex-col gap-1">
+                <div class="font-medium tracking-[-0.01em]">
+                  5. Can I change the session length?
+                </div>
+                <div class="text-[#7E7E7E] ml-4.5 leading-[21px]">No. Your session length is fixed at 25 minutes due to
+                  pomodoro method
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white rounded-[15px] shadow-[0px_4px_4px_rgba(0,0,0,0.25),0px_4px_4px_rgba(0,0,0,0.25),0px_10px_60px_rgba(226,236,249,0.5)] p-6">
+          <h2 class="text-lg font-semibold mb-4">General</h2>
+          <div class="flex flex-col gap-5">
+            <div class="text-base">
+              <div class="flex flex-col gap-1">
+                <div class="font-medium tracking-[-0.01em]">
+                  1. Do you track my activity outside this website?
+                </div>
+                <div class="text-[#7E7E7E] ml-4.5 leading-[21px]">No. We only track activity related to your timer usage
+                  for performance stats.
+                </div>
+              </div>
+            </div>
+            <div class="text-base">
+              <div class="flex flex-col gap-1">
+                <div class="font-medium tracking-[-0.01em]">
+                  2. Can I change the theme or appearance?
+                </div>
+                <div class="text-[#7E7E7E] ml-4.5 leading-[21px]">Yes. Go to Settings → Appearance to switch between
+                  light and dark themes
+                </div>
+              </div>
+            </div>
+            <div class="text-base">
+              <div class="flex flex-col gap-1">
+                <div class="font-medium tracking-[-0.01em]">
+                  3. Is there a premium or paid version?
+                </div>
+                <div class="text-[#7E7E7E] ml-4.5 leading-[21px]">Currently, all features are free. A premium plan may
+                  be introduced in the future for advanced tracking and customization.
+                </div>
+              </div>
+            </div>
+            <div class="text-base">
+              <div class="flex flex-col gap-1">
+                <div class="font-medium tracking-[-0.01em]">
+                  4. Can I adjust the alarm sound?
+                </div>
+                <div class="text-[#7E7E7E] ml-4.5 leading-[21px]">No. The alarm sound is fixed and cannot be changed to
+                  ensure a consistent studying experience.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  
-  <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
-    <div class="bg-white rounded-[15px] shadow-[0px_4px_4px_rgba(0,0,0,0.25),0px_4px_4px_rgba(0,0,0,0.25),0px_10px_60px_rgba(226,236,249,0.5)] p-6">
-      <h2 class="text-lg font-semibold mb-4">Pomodoro Timer</h2>
-      <div class="flex flex-col gap-5">
-      <div class="text-base">
-        <div class="flex flex-col gap-1">
-        <div class="font-medium tracking-[-0.01em]">
-        1. What is a session?
-      </div>
-        <div class="text-[#7E7E7E] ml-4.5 leading-[21px]">A session is one focused work or study period, usually set to 25 minutes. After each session, you take a short 5 minutes rest before starting the next one.</div>
-      </div>
-      </div>
-      <div class="text-base">
-        <div class="flex flex-col gap-1">
-        <div class="font-medium tracking-[-0.01em]">
-        2. How is distraction time counted?
-      </div>
-        <div class="text-[#7E7E7E] ml-4.5 leading-[21px]">When a distraction is detected (you leave your desk, use your handphone, etc.), the session timer pauses. The time spent distracted is recorded in your Distraction History.</div>
-      </div>
-      </div>
-      <div class="text-base">
-        <div class="flex flex-col gap-1">
-        <div class="font-medium tracking-[-0.01em]">
-        3. Does distraction time reduce my 25 minutes session?
-      </div>
-        <div class="text-[#7E7E7E] ml-4.5 leading-[21px]">No. Your 25-minute session only counts active focus time. Distraction time is paused and the timer resumes after the distraction ends.</div>
-      </div>
-      </div>
-      <div class="text-base">
-        <div class="flex flex-col gap-1">
-        <div class="font-medium tracking-[-0.01em]">
-        4. What is the difference between Session History and Distraction History?
-      </div>
-        <div class="text-[#7E7E7E] ml-4.5 leading-[25px]">• Session History, Shows start and end time of every work and rest period. <br>
-          • Distraction History, Shows each distraction's start time, end time, and duration.</div>
-      </div>
-      </div>
-      <div class="text-base">
-        <div class="flex flex-col gap-1">
-        <div class="font-medium tracking-[-0.01em]">
-        5. Can I change the session length?
-      </div>
-        <div class="text-[#7E7E7E] ml-4.5 leading-[21px]">No. Your session length is fixed at 25 minutes due to pomodoro method</div>
-      </div>
-      </div>
-    </div>
-    </div>
-  
-    <div class="bg-white rounded-[15px] shadow-[0px_4px_4px_rgba(0,0,0,0.25),0px_4px_4px_rgba(0,0,0,0.25),0px_10px_60px_rgba(226,236,249,0.5)] p-6">
-      <h2 class="text-lg font-semibold mb-4">General</h2>
-      <div class="flex flex-col gap-5">
-        <div class="text-base">
-          <div class="flex flex-col gap-1">
-          <div class="font-medium tracking-[-0.01em]">
-          1. Do you track my activity outside this website?
-        </div>
-          <div class="text-[#7E7E7E] ml-4.5 leading-[21px]">No. We only track activity related to your timer usage for performance stats.</div>
-        </div>
-        </div>
-        <div class="text-base">
-          <div class="flex flex-col gap-1">
-          <div class="font-medium tracking-[-0.01em]">
-          2. Can I change the theme or appearance?
-        </div>
-          <div class="text-[#7E7E7E] ml-4.5 leading-[21px]">Yes. Go to Settings → Appearance to switch between light and dark themes</div>
-        </div>
-        </div>
-        <div class="text-base">
-          <div class="flex flex-col gap-1">
-          <div class="font-medium tracking-[-0.01em]">
-          3. Is there a premium or paid version?
-        </div>
-          <div class="text-[#7E7E7E] ml-4.5 leading-[21px]">Currently, all features are free. A premium plan may be introduced in the future for advanced tracking and customization.</div>
-        </div>
-        </div>
-        <div class="text-base">
-          <div class="flex flex-col gap-1">
-          <div class="font-medium tracking-[-0.01em]">
-          4. Can I adjust the alarm sound?
-        </div>
-          <div class="text-[#7E7E7E] ml-4.5 leading-[21px]">No. The alarm sound is fixed and cannot be changed to ensure a consistent studying experience.</div>
-        </div>
-        </div>
-      </div>
-  
-    </div>
-  </div>
-  
-  
-  </div>
-    
-  </div>
-  </div>
-  </body>
+</div>
+</body>
