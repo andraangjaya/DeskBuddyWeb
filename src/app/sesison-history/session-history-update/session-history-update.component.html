@@ -19,8 +19,11 @@
                 stroke-linejoin="round"/>
         </svg>
 
-        <input type="text" placeholder="Search"
-               class="w-full h-full border-none outline-none text-sm text-gray-700 placeholder-gray-400 bg-transparent"/>
+        <input
+          type="text"
+          placeholder="Search"
+          class="w-full h-full border-none outline-none text-sm text-gray-700 placeholder-gray-400 bg-transparent"
+          (input)="searchQuery.set($any($event.target).value)" />
       </div>
 
     </div>
@@ -105,7 +108,14 @@
           <label class="text-[#16C098]">Pomodoro Study Time</label>
         </div>
         <div class="bg-[#F9FBFF] rounded-xl p-4">
-          <label>Sort by : <strong>Newest</strong></label>
+          <label>Sort by :</label>
+          <select
+            class="font-semibold bg-transparent focus:outline-none cursor-pointer"
+            (change)="onSortChange($event)"
+          >
+            <option value="newest" selected>Newest</option>
+            <option value="oldest">Oldest</option>
+          </select>
         </div>
       </div>
 
@@ -122,16 +132,28 @@
         </thead>
 
         <tbody class="font-medium">
-          @for (sessionHistory of sessionHistories(); track sessionHistory.id; let i = $index) {
+          @for (sessionHistory of sortedHistories(); track sessionHistory.id; let i = $index) {
             <tr class="w-full border-b border-[#E5E5E5] hover:bg-gray-50">
               <td class="py-6 px-6">
                 {{ sessionHistory.firstName }} {{ sessionHistory.lastName }}
               </td>
               <td class="py-6 px-6">{{ sessionHistory.session }}</td>
               <td class="py-6 px-6">{{ sessionHistory.timeStarted | date: 'HH:mm:ss' }}</td>
-              <td class="py-6 px-6">{{ sessionHistory.timeFinished | date: 'HH:mm:ss'}}</td>
+              <td class="py-6 px-6">{{ sessionHistory.timeFinished | date: 'HH:mm:ss' }}</td>
               <td class="py-6 px-6">{{ sessionHistory.totalDistraction }}</td>
-              <td class="py-6 px-6">{{ sessionHistory.status }}</td>
+              <td class="py-6 px-6">
+                <div
+                  class="font-semibold px-3 py-1 rounded w-fit"
+                  [ngClass]="{
+      'bg-[rgba(22,192,152,0.38)] text-[#008767]': sessionHistory.status?.toLowerCase() === 'done',
+      'bg-[#FFC5C5] text-[#DF0404]': sessionHistory.status?.toLowerCase() === 'in_progress',
+      'bg-[rgba(255,216,0,0.38)] text-[#7A7000]': sessionHistory.status?.toLowerCase() === 'incomplete'
+    }"
+                >
+                  {{ formatStatus(sessionHistory.status) }}
+                </div>
+              </td>
+
             </tr>
           }
         </tbody>
