@@ -23,8 +23,4 @@ export class SessionHistoryUpdateComponent implements OnInit{
           this.sessionHistories.set(res.body ?? []);
         });
     }
-
-
-
-
 }

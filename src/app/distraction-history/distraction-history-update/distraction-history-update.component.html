@@ -107,133 +107,35 @@
           <label>Sort by : <strong>Newest</strong></label>
         </div>
       </div>
-      <div class="grid grid-cols-6">
-        <div class="flex flex-col gap-6 mt-10 items-center">
-          <div class="text-[#B5B7C0] font-medium">Student Name</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">Andra Angjaya</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">Andra Angjaya</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">Andra Angjaya</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">Andra Angjaya</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">Andra Angjaya</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">Andra Angjaya</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">Andra Angjaya</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">Andra Angjaya</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-        </div>
 
-        <div class="flex flex-col gap-6 mt-10 items-center">
-          <div class="text-[#B5B7C0] font-medium">Session</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">1</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">1</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">1</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">1</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">1</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">1</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">1</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">1</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-        </div>
+      <table class="border-collapse mt-3">
+        <thead class="text-left w-full border-b border-[#E5E5E5] text-[#B5B7C0]">
+        <tr>
+          <th scope="col" class="py-6 px-6 font-medium">Student Name</th>
+          <th scope="col" class="py-6 px-6 font-medium">Session</th>
+          <th scope="col" class="py-6 px-6 font-medium">Distractions</th>
+          <th scope="col" class="py-6 px-6 font-medium">Distraction Start</th>
+          <th scope="col" class="py-6 px-6 font-medium">Distraction End</th>
+          <th scope="col" class="py-6 px-6 font-medium">Time Elapsed</th>
+        </tr>
+        </thead>
 
-        <div class="flex flex-col gap-6 mt-10 items-center">
-          <div class="text-[#B5B7C0] font-medium">Distractions</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">1</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">1</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">1</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">1</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">1</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">1</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">1</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">1</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-        </div>
+        <tbody class="font-medium">
+          @for (distractionHistory of distractionHistories(); track distractionHistory.id; let i = $index) {
+            <tr class="w-full border-b border-[#E5E5E5] hover:bg-gray-50">
+              <td class="py-6 px-6">
+                {{ distractionHistory.firstName }} {{ distractionHistory.lastName }}
+              </td>
+              <td class="py-6 px-6">{{ distractionHistory.session }}</td>
+              <td class="py-6 px-6">{{ distractionHistory.distractions | date: 'HH:mm:ss' }}</td>
+              <td class="py-6 px-6">{{ distractionHistory.distractionStart | date: 'HH:mm:ss' }}</td>
+              <td class="py-6 px-6">{{ distractionHistory.distractionEnd }}</td>
+              <td class="py-6 px-6">{{ distractionHistory.timeElapsed }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
 
-        <div class="flex flex-col gap-6 mt-10 items-center">
-          <div class="text-[#B5B7C0] font-medium">Distraction Start</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">01:00:00</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">01:00:00</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">01:00:00</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">01:00:00</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">01:00:00</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">01:00:00</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">01:00:00</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">01:00:00</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-        </div>
-
-        <div class="flex flex-col gap-6 mt-10 items-center">
-          <div class="text-[#B5B7C0] font-medium">Distraction End</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">02:00:00</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">02:00:00</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">02:00:00</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">02:00:00</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">02:00:00</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">02:00:00</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">02:00:00</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">02:00:00</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-        </div>
-
-        <div class="flex flex-col gap-6 mt-10 items-center">
-          <div class="text-[#B5B7C0] font-medium">Time Elapsed</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">2m 30s</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">2m 30s</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">2m 30s</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">2m 30s</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">2m 30s</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">2m 30s</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">2m 30s</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-          <div class="font-medium">2m 30s</div>
-          <div class="w-full border-t border-[#E5E5E5]"></div>
-        </div>
-      </div>
       <div class="mt-10 text-[#B5B7C0]">
         Showing data 1 to 8 of 256K entries
       </div>
