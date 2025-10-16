@@ -1,20 +1,37 @@
 <body class="bg-[#FAFBFF]">
 
-  <div class="flex flex-row gap-20">
+  <div class="flex flex-col md:flex-row gap-4 md:gap-12 lg:gap-20">
   
-  <div>
-    <app-sidebar></app-sidebar>
+  <div class="md:sticky md:top-0 md:h-screen md:shrink-0">
+    <div class="fixed inset-0 bg-black/50 z-40 md:hidden" *ngIf="sidebarOpen" (click)="toggleSidebar()"></div>
+    <div class="fixed left-0 top-0 bottom-0 w-64 max-w-[80%] bg-white z-50 transform transition-transform duration-300 md:relative md:translate-x-0 md:w-auto md:max-w-none md:block"
+         [class.-translate-x-full]="!sidebarOpen" [class.translate-x-0]="sidebarOpen">
+      <app-sidebar></app-sidebar>
+    </div>
+  </div>
+
+  <div class="flex items-center justify-between md:hidden ml-4">
+    <button type="button" class="inline-flex items-center gap-2 px-3 py-2 rounded-md border border-[#E5E7EB]"
+            (click)="toggleSidebar()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 7H20" stroke="#111827" stroke-width="2" stroke-linecap="round"/>
+        <path d="M4 12H20" stroke="#111827" stroke-width="2" stroke-linecap="round"/>
+        <path d="M4 17H20" stroke="#111827" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="text-sm">Menu</span>
+    </button>
   </div>
   
-  <div class="flex-1 grid grid-row-3 mr-25">
+  <div class="flex-1 grid grid-row-3 md:mr-16 lg:mr-25 px-4 md:px-0">
   
-    <div class="flex flex-col bg-[#FFFFFF] shadow-[0_10px_60px_rgba(226,236,249,0.5)] rounded-[30px] w-full mt-10 mr-20 mb-10 p-8">
-  <div class="flex flex-row justify-between mt-2 mb-10">
-    <div class="text-2xl font-medium">
+    <div class="flex flex-col bg-[#FFFFFF] shadow-[0_10px_60px_rgba(226,236,249,0.5)] rounded-[16px] md:rounded-[30px] w-full mt-4 md:mt-10 md:mr-16 lg:mr-20 mb-8 md:mb-10 p-3 md:p-8 lg:p-10">
+  
+  <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between mt-0 md:mt-2 mb-4 md:mb-10">
+    <div class="text-xl md:text-2xl font-medium">
       <h1>Help (FAQ)</h1>
     </div>
   
-    <div class="w-[216px] h-[38px] bg-[#FFFFFF] shadow-[0_10px_60px_rgba(226,236,249,0.5)] rounded-[12px] flex items-center px-3 gap-2">
+    <div class="w-full md:w-[216px] h-[38px] bg-[#FFFFFF] shadow-[0_10px_60px_rgba(226,236,249,0.5)] rounded-[12px] flex items-center px-3 gap-2">
       <svg width="30" height="30" viewBox="0 0 w24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#7E7E7E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M21 21L16.65 16.65" stroke="#7E7E7E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -24,8 +41,8 @@
     </div>
   </div>
   
-  <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
-    <div class="bg-white rounded-[15px] shadow-[0px_4px_4px_rgba(0,0,0,0.25),0px_4px_4px_rgba(0,0,0,0.25),0px_10px_60px_rgba(226,236,249,0.5)] p-6">
+  <div class="grid grid-cols-1 gap-3 md:gap-8">
+    <div class="bg-white rounded-[10px] md:rounded-[15px] shadow-[0px_4px_4px_rgba(0,0,0,0.25),0px_4px_4px_rgba(0,0,0,0.25),0px_10px_60px_rgba(226,236,249,0.5)] p-3 md:p-6">
       <h2 class="text-lg font-semibold mb-4">Pomodoro Timer</h2>
       <div class="flex flex-col gap-5">
       <div class="text-base">
@@ -72,7 +89,7 @@
     </div>
     </div>
   
-    <div class="bg-white rounded-[15px] shadow-[0px_4px_4px_rgba(0,0,0,0.25),0px_4px_4px_rgba(0,0,0,0.25),0px_10px_60px_rgba(226,236,249,0.5)] p-6">
+    <div class="bg-white rounded-[10px] md:rounded-[15px] shadow-[0px_4px_4px_rgba(0,0,0,0.25),0px_4px_4px_rgba(0,0,0,0.25),0px_10px_60px_rgba(226,236,249,0.5)] p-3 md:p-6">
       <h2 class="text-lg font-semibold mb-4">General</h2>
       <div class="flex flex-col gap-5">
         <div class="text-base">

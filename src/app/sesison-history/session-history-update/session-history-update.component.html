@@ -1,15 +1,30 @@
 <body class="bg-[#FAFBFF]">
-<div class="flex flex-row gap-20">
-  <div>
-    <app-sidebar></app-sidebar>
+<div class="flex flex-col md:flex-row gap-6 md:gap-12 lg:gap-20">
+  <div class="md:sticky md:top-0 md:h-screen md:shrink-0">
+    <div class="fixed inset-0 bg-black/50 z-40 md:hidden" *ngIf="sidebarOpen" (click)="toggleSidebar()"></div>
+    <div class="fixed left-0 top-0 bottom-0 w-64 max-w-[80%] bg-white z-50 transform transition-transform duration-300 md:relative md:translate-x-0 md:w-auto md:max-w-none md:block"
+         [class.-translate-x-full]="!sidebarOpen" [class.translate-x-0]="sidebarOpen">
+      <app-sidebar></app-sidebar>
+    </div>
   </div>
-  <div class="flex-1 grid grid-row-3 mr-25">
-    <div class="flex flex-row justify-between mt-10 mb-10">
-      <div class="text-2xl font-medium">
+  <div class="flex-1 grid grid-row-3 md:mr-16 lg:mr-25 px-4 md:px-0">
+    <div class="flex items-center justify-between md:hidden mb-2">
+      <button type="button" class="inline-flex items-center gap-2 px-3 py-2 rounded-md border border-[#E5E7EB]"
+              (click)="toggleSidebar()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 7H20" stroke="#111827" stroke-width="2" stroke-linecap="round"/>
+          <path d="M4 12H20" stroke="#111827" stroke-width="2" stroke-linecap="round"/>
+          <path d="M4 17H20" stroke="#111827" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="text-sm">Menu</span>
+      </button>
+    </div>
+    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between mt-4 md:mt-10 mb-4 md:mb-10">
+      <div class="text-xl md:text-2xl font-medium">
         <h1>Hello GRED | Ayam Tempong👋🏼</h1>
       </div>
 
-      <div class="w-[216px] h-[38px] bg-[#FFFFFF] shadow-[0_10px_60px_rgba(226,236,249,0.5)] rounded-[12px] flex items-center px-3 gap-2">
+      <div class="w-full md:w-[216px] h-[38px] bg-[#FFFFFF] shadow-[0_10px_60px_rgba(226,236,249,0.5)] rounded-[12px] flex items-center px-3 gap-2">
         <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#7E7E7E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M21 21L16.65 16.65" stroke="#7E7E7E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -20,9 +35,9 @@
 
     </div>
 
-    <div class="grid grid-cols-[auto_1px_auto_1px_auto] bg-white rounded-4xl shadow-2xl gap-20 p-10 items-center">
+    <div class="grid grid-cols-1 md:grid-cols-[auto_1px_auto_1px_auto] bg-white rounded-2xl md:rounded-4xl shadow-2xl gap-4 md:gap-16 lg:gap-20 p-4 md:p-8 lg:p-10 items-center">
       <div class="flex flex-cols items-center gap-2">
-        <div class="w-[84px] h-[84px] bg-[linear-gradient(201.18deg,_#D3FFE7_3.14%,_#EFFFF6_86.04%)] flex items-center justify-center rounded-full">
+        <div class="w-14 h-14 md:w-[84px] md:h-[84px] bg-[linear-gradient(201.18deg,_#D3FFE7_3.14%,_#EFFFF6_86.04%)] flex items-center justify-center rounded-full">
           <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.0302 19.0229C15.8552 19.0054 15.6452 19.0054 15.4527 19.0229C11.2877 18.8829 7.98024 15.4704 7.98024 11.2704C7.98024 6.98287 11.4452 3.50037 15.7502 3.50037C20.0377 3.50037 23.5202 6.98287 23.5202 11.2704C23.5027 15.4704 20.1952 18.8829 16.0302 19.0229Z" stroke="#00AC4F" stroke-width="2.625" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M28.7172 6.99963C32.1122 6.99963 34.8422 9.74713 34.8422 13.1246C34.8422 16.4321 32.2172 19.1271 28.9447 19.2496C28.8047 19.2321 28.6472 19.2321 28.4897 19.2496" stroke="#00AC4F" stroke-width="2.625" stroke-linecap="round" stroke-linejoin="round"/>
@@ -30,32 +45,32 @@
             <path d="M32.0947 35.0004C33.3547 34.7379 34.5447 34.2304 35.5247 33.4779C38.2547 31.4304 38.2547 28.0529 35.5247 26.0054C34.5622 25.2704 33.3897 24.7804 32.1472 24.5004" stroke="#00AC4F" stroke-width="2.625" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <div class="flex flex-col ml-5 gap-1">
+        <div class="flex flex-col ml-4 md:ml-5 gap-1">
           <label class="text-sm text-[#ACACAC] font-normal">Total Session</label>
-          <div class="font-semibold text-4xl">
+          <div class="font-semibold text-2xl md:text-4xl">
             8
           </div>
         </div>
       </div>
-      <div class="w-px bg-[#E5E5E5] h-20"></div>
+      <div class="hidden md:block w-px bg-[#E5E5E5] h-20"></div>
       <div class="flex flex-cols items-center gap-2">
-        <div class="w-[84px] h-[84px] bg-[linear-gradient(201.18deg,_#D3FFE7_3.14%,_#EFFFF6_86.04%)] flex items-center justify-center rounded-full">
+        <div class="w-14 h-14 md:w-[84px] md:h-[84px] bg-[linear-gradient(201.18deg,_#D3FFE7_3.14%,_#EFFFF6_86.04%)] flex items-center justify-center rounded-full">
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M24.0666 31.75L26.6 34.2834L31.6666 29.2167" stroke="#00AC4F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M20.2669 18.117C20.1003 18.1003 19.9003 18.1003 19.7169 18.117C15.7503 17.9837 12.6003 14.7337 12.6003 10.7337C12.5836 6.65035 15.9003 3.33368 19.9836 3.33368C24.0669 3.33368 27.3836 6.65035 27.3836 10.7337C27.3836 14.7337 24.2169 17.9837 20.2669 18.117Z" stroke="#00AC4F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M19.9831 36.3498C16.9498 36.3498 13.9331 35.5832 11.6331 34.0498C7.59981 31.3498 7.59981 26.9498 11.6331 24.2665C16.2165 21.1998 23.7331 21.1998 28.3165 24.2665" stroke="#00AC4F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <div class="flex flex-col ml-5 gap-1">
+        <div class="flex flex-col ml-4 md:ml-5 gap-1">
           <label class="text-sm text-[#ACACAC] font-normal">Members</label>
-          <div class="font-semibold text-4xl">
+          <div class="font-semibold text-2xl md:text-4xl">
             8
           </div>
         </div>
       </div>
-      <div class="w-px bg-[#E5E5E5] h-20"></div>
+      <div class="hidden md:block w-px bg-[#E5E5E5] h-20"></div>
       <div class="flex flex-cols items-center gap-2">
-        <div class="w-[84px] h-[84px] bg-[linear-gradient(201.18deg,_#D3FFE7_3.14%,_#EFFFF6_86.04%)] flex items-center justify-center rounded-full">
+        <div class="w-14 h-14 md:w-[84px] md:h-[84px] bg-[linear-gradient(201.18deg,_#D3FFE7_3.14%,_#EFFFF6_86.04%)] flex items-center justify-center rounded-full">
           <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11.27 3.5H30.7125C36.9425 3.5 38.5 5.0575 38.5 11.27V22.3475C38.5 28.5775 36.9425 30.1175 30.73 30.1175H11.27C5.0575 30.135 3.5 28.5775 3.5 22.365V11.27C3.5 5.0575 5.0575 3.5 11.27 3.5Z" stroke="#00AC4F" stroke-width="2.625" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M21 30.1345V38.4995" stroke="#00AC4F" stroke-width="2.625" stroke-linecap="round" stroke-linejoin="round"/>
@@ -63,26 +78,26 @@
             <path d="M13.125 38.5H28.875" stroke="#00AC4F" stroke-width="2.625" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <div class="flex flex-col ml-5 gap-1">
+        <div class="flex flex-col ml-4 md:ml-5 gap-1">
           <label class="text-sm text-[#ACACAC] font-normal">Active Now</label>
-          <div class="font-semibold text-4xl">
+          <div class="font-semibold text-2xl md:text-4xl">
             8
           </div>
         </div>
       </div>
     </div>
 
-    <div class="grid grid-rows-[auto_1fr_auto] bg-white rounded-4xl shadow-2xl mt-10 p-10">
-      <div class="grid grid-cols-[1fr_auto]">
+    <div class="grid grid-rows-[auto_1fr_auto] bg-white rounded-2xl md:rounded-4xl shadow-2xl mt-4 md:mt-10 p-4 md:p-10">
+      <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-3 md:gap-4">
         <div class="grid grid-rows-2">
-          <label class="text-2xl font-bold">Session History</label>
+          <label class="text-xl md:text-2xl font-bold">Session History</label>
           <label class="text-[#16C098]">Pomodoro Study Time</label>
         </div>
-        <div class="bg-[#F9FBFF] rounded-xl p-4">
+        <div class="bg-[#F9FBFF] rounded-xl p-2 md:p-4 w-full md:w-auto text-sm md:text-base">
           <label>Sort by : <strong>Newest</strong></label>
         </div>
       </div>
-      <div class="grid grid-cols-6">
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6">
         <div class="flex flex-col gap-6 mt-10 items-center">
           <div class="text-[#B5B7C0] font-medium">Student Name</div>
           <div class="w-full border-t border-[#E5E5E5]"></div>
@@ -210,7 +225,7 @@
         </div>
 
       </div>
-      <div class="mt-10 text-[#B5B7C0]">
+      <div class="mt-6 md:mt-10 text-[#B5B7C0]">
         Showing data 1 to 8 of  256K entries
       </div>
     </div>
