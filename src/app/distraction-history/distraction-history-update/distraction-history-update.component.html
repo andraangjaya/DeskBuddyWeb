@@ -46,7 +46,7 @@
         <div class="flex flex-col ml-5 gap-1">
           <label class="text-sm text-[#ACACAC] font-normal">Total Distraction</label>
           <div class="font-semibold text-4xl">
-            8
+            {{ totalDistractions() }}
           </div>
         </div>
       </div>
@@ -68,7 +68,7 @@
         <div class="flex flex-col ml-5 gap-1">
           <label class="text-sm text-[#ACACAC] font-normal">Members</label>
           <div class="font-semibold text-4xl">
-            8
+            {{ totalMembers() }}
           </div>
         </div>
       </div>
@@ -89,9 +89,9 @@
           </svg>
         </div>
         <div class="flex flex-col ml-5 gap-1">
-          <label class="text-sm text-[#ACACAC] font-normal">Active Now</label>
+          <label class="text-sm text-[#ACACAC] font-normal">Ongoing Distractions</label>
           <div class="font-semibold text-4xl">
-            8
+            {{ activeNow() }}
           </div>
         </div>
       </div>
