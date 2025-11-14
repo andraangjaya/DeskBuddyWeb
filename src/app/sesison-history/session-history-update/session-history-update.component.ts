@@ -47,7 +47,7 @@ export class SessionHistoryUpdateComponent implements OnInit {
     const filtered = data.filter(item =>
       `${item.firstName} ${item.lastName}`.toLowerCase().includes(query) ||
       String(item.session).includes(query) ||
-      item.status?.toLowerCase().includes(query)
+      item.status.toLowerCase().includes(query)
     );
 
     return filtered.sort((a, b) => {
