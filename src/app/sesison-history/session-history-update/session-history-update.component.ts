@@ -1,4 +1,4 @@
-import {Component, computed, inject, OnInit, signal} from '@angular/core';
+import {Component, computed, HostListener, inject, OnInit, signal} from '@angular/core';
 import {SidebarComponent} from '../../component/sidebar/sidebar.component';
 import {SessionHistoryService} from '../session-history.service';
 import {SessionHistory} from '../session-history.model';
@@ -38,6 +38,7 @@ export class SessionHistoryUpdateComponent implements OnInit {
 
   searchQuery = signal<string>('');
   sortOrder = signal<'newest' | 'oldest'>('newest');
+  isDropdownOpen = signal<boolean>(false);
   sortedHistories = computed(() => {
     const query = this.searchQuery().toLowerCase();
     const data = [...this.sessionHistories()];
@@ -56,9 +57,25 @@ export class SessionHistoryUpdateComponent implements OnInit {
     });
   });
 
-  onSortChange(event: Event): void {
-    const value = (event.target as HTMLSelectElement).value as 'newest' | 'oldest';
+  toggleDropdown(): void {
+    this.isDropdownOpen.set(!this.isDropdownOpen());
+  }
+
+  selectSortOption(value: 'newest' | 'oldest'): void {
     this.sortOrder.set(value);
+    this.isDropdownOpen.set(false);
+  }
+
+  getSortLabel(): string {
+    return this.sortOrder() === 'newest' ? 'Newest' : 'Oldest';
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.custom-dropdown-button') && !target.closest('.custom-dropdown-menu')) {
+      this.isDropdownOpen.set(false);
+    }
   }
 
   ngOnInit(): void {

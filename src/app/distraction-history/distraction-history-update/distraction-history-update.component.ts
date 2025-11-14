@@ -1,4 +1,4 @@
-import {Component, computed, inject, signal} from '@angular/core';
+import {Component, computed, HostListener, inject, signal} from '@angular/core';
 import {SidebarComponent} from '../../component/sidebar/sidebar.component';
 import {CommonModule, DatePipe} from '@angular/common';
 import {DistractionHistoryModel} from '../distraction-history.model';
@@ -45,6 +45,7 @@ export class DistractionHistoryUpdateComponent {
 
   searchQuery = signal<string>('');
   sortOrder = signal<'newest' | 'oldest'>('newest');
+  isDropdownOpen = signal<boolean>(false);
   sortedHistories = computed(() => {
     const query = this.searchQuery().toLowerCase();
     const data = [...this.distractionHistories()];
@@ -62,11 +63,26 @@ export class DistractionHistoryUpdateComponent {
     });
   });
 
-  onSortChange(event: Event): void {
-    const value = (event.target as HTMLSelectElement).value as 'newest' | 'oldest';
-    this.sortOrder.set(value);
+  toggleDropdown(): void {
+    this.isDropdownOpen.set(!this.isDropdownOpen());
   }
 
+  selectSortOption(value: 'newest' | 'oldest'): void {
+    this.sortOrder.set(value);
+    this.isDropdownOpen.set(false);
+  }
+
+  getSortLabel(): string {
+    return this.sortOrder() === 'newest' ? 'Newest' : 'Oldest';
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.custom-dropdown-button') && !target.closest('.custom-dropdown-menu')) {
+      this.isDropdownOpen.set(false);
+    }
+  }
 
   ngOnInit(): void {
     this.distractionHistoryService.query().subscribe(res =>{
